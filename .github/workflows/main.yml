@@ -28,11 +28,11 @@ jobs:
         uses: warchant/setup-sonar-scanner@v7
 
       - name: SonarQube Scan
-        run: sonar-scanner
+        run: sonar-scanner -X
            -Dsonar.host.url=${{ secrets.SONAR_URL }}
            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-           -Dsonar.projectKey="vproapp1202"
+           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
            -Dsonar.sources=src/
            -Dsonar.junit.reportsPath=target/surefire-reports/ 
            -Dsonar.jacoco.reportsPath=target/jacoco.exec 
